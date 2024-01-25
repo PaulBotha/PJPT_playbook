@@ -1,4 +1,4 @@
-Recon
+NMAP SCANS
 
 NMAP sudo nmap -p445 ip/24 --open (search for smb in subnet that are open)
 
