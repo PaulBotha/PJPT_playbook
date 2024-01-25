@@ -1,3 +1,5 @@
+Recon command/tools for 445 specific
+
 NMAP SCANS
 
 NMAP sudo nmap -p445 ip/24 --open (search for smb in subnet that are open)
@@ -7,3 +9,27 @@ sudo nmap -A -T4 -p- ip (big search for all ports)
 sudo nmap --script smb-security-mode -p445 ip/24 (looking for not require SMB signing, DC requires & Domain member doesn't require) - Lab1
 
 sudo nmap --script smb_protocols -p445 ip/24 (looks for SMB version) - Lab1
+
+METASPLOIT
+
+msfconsole -q (starts up quietly) 
+
+search
+use 
+set 
+
+CRACKMAPEXEC (CME)
+
+crackmapexec smb ip/24  (gives lots of info) (signing:false means doesn't require) 
+
+crackmapexec smb ip/24 --gen-relay-list relay.txt ( make a list of dont require signing) 
+
+crackmapexec smb ip/24 -u '' -p '' (create a null session - login with no details)
+[+]  - Access
+[-] - Access denied
+[*] - info
+
+SMBCLIENT
+
+smbclient -L \\ip -U '' -N
+L - list shares  U - user  N - no password
